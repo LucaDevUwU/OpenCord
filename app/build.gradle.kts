@@ -6,18 +6,19 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.xinto.opencord"
         namespace = "com.xinto.opencord"
-        minSdk = 21
-        targetSdk = 33
+        minSdk = 32
+        targetSdk = 34
         versionCode = 1
-        versionName = "0.0.1"
+        versionName = "0.1.0"
 
         buildConfigField("int", "DISCORD_VERSION_CODE", "126021")
         buildConfigField("String", "DISCORD_VERSION_NAME", "\"126.21 - Stable\"")
@@ -55,12 +56,12 @@ android {
         // Use java.time.* on Android <= 8
         isCoreLibraryDesugaringEnabled = true
 
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
         freeCompilerArgs += listOf(
             "-opt-in=androidx.compose.foundation.ExperimentalFoundationApi",
             "-opt-in=androidx.compose.animation.ExperimentalAnimationApi",
@@ -77,7 +78,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.
     }
 
     androidComponents {
@@ -127,7 +128,7 @@ android {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -136,7 +137,7 @@ dependencies {
 
     // Use java.time.* on Android <= 8
     // https://developer.android.com/studio/write/java8-support#library-desugaring-versions
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     implementation(libs.bundles.androidx.core)
     implementation(libs.bundles.androidx.compose)

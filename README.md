@@ -41,13 +41,6 @@ clients. What they do automatically ban for, is API abuse or strange requests. T
 takes great caution in emulating official clients exactly, but as it is still in development, please
 ***use an alt account for your safety.***
 
-### Where download???!?!?!?!?
-
-Since there is no release version yet, use
-this [nightly link](https://nightly.link/materiiapps/opencord/workflows/android/master/opencord.zip)
-to download OpenCord. Download, extract and install the APK contained within. If you are
-reinstalling or updating, you have to uninstall the old version first!
-
 ## Building locally
 
 Windows:

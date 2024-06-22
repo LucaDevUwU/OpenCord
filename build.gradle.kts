@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
     alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.compose.compiler) apply false
+
 }
 
 allprojects {
@@ -16,6 +18,6 @@ allprojects {
 }
 
 task<Delete>("clean") {
-    delete(rootProject.buildDir)
+    delete(rootProject.getLayout().buildDirectory)
     delete(rootDir.resolve("buildSrc/build"))
 }
